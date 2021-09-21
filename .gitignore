@@ -127,3 +127,12 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+# other
+*~
+*.bak
+.idea/
+*.iml
+blah*.py
+test*.py
+*.csv
