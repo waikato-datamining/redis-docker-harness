@@ -5,6 +5,7 @@ from rdh import MessageContainer, create_parser, configure_redis, run_harness
 def to_upper_case(msg_cont):
     """
     Processes the message container, turning the message into upper case.
+    NB: This code is assumed to reside in a docker container.
 
     :param msg_cont: the message container to process
     :type msg_cont: MessageContainer
