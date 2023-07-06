@@ -1,6 +1,3 @@
-# setup.py
-# Copyright (C) 2021 University of Waikato, Hamilton, NZ
-
 from setuptools import setup
 
 
@@ -38,7 +35,7 @@ setup(
     install_requires=[
         "redis",
     ],
-    version="0.0.1",
+    version="0.0.2",
     author='Peter Reutemann',
     author_email='fracpete@waikato.ac.nz',
 )
