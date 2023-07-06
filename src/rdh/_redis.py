@@ -1,6 +1,7 @@
 import argparse
 import redis
-import threading
+
+from ._argparse import get_password
 
 
 class Container(object):
@@ -56,7 +57,7 @@ def configure_redis(ns, config=None):
     :rtype: ParameterContainer
     """
     result = ParameterContainer()
-    result.redis = redis.Redis(host=ns.redis_host, port=ns.redis_port, db=ns.redis_db)
+    result.redis = redis.Redis(host=ns.redis_host, port=ns.redis_port, db=ns.redis_db, password=get_password(ns))
     result.pubsub = result.redis.pubsub()
     result.channel_in = ns.redis_in
     result.channel_out = ns.redis_out
