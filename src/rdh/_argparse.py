@@ -49,8 +49,9 @@ def has_password(ns):
             return True
 
     if hasattr(ns, "redis_password_env"):
-        if os.getenv(ns.redis_password_env) is not None:
-            return True
+        if ns.redis_password_env is not None:
+            if os.getenv(ns.redis_password_env) is not None:
+                return True
 
     return False
 
@@ -69,7 +70,8 @@ def get_password(ns):
             return ns.redis_password
 
     if hasattr(ns, "redis_password_env"):
-        if os.getenv(ns.redis_password_env) is not None:
-            return os.getenv(ns.redis_password_env)
+        if ns.redis_password_env is not None:
+            if os.getenv(ns.redis_password_env) is not None:
+                return os.getenv(ns.redis_password_env)
 
     return None
