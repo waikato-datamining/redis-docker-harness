@@ -32,6 +32,8 @@ def create_parser(description, prog=None, prefix=""):
                         dest='redis_in', help='The redis channel to receive the data from')
     parser.add_argument('--%sout' % prefix, metavar='CHANNEL', required=True, type=str,
                         dest='redis_out', help='The redis channel to publish the processed data on')
+    parser.add_argument('--%stimeout' % prefix, metavar='NUM', required=False, type=float, default=0.001,
+                        dest='redis_timeout', help='The timeout to use for the pubsub thread sleep_time parameter.')
     return parser
 
 

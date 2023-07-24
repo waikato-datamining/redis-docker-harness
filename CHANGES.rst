@@ -4,7 +4,8 @@ Changelog
 0.0.4 (????-??-??)
 ------------------
 
-- the `sleep_time` (timeout) used by the `run_harness` method is now a parameter
+- added the `redis_timeout` parameter to the argparse options to make the pubsub thread `sleep_time` parameter
+  configurable from the command-line
 
 
 0.0.3 (2023-07-10)

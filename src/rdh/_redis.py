@@ -29,6 +29,9 @@ class ParameterContainer(Container):
         self.channel_out = None
         """ The channel to send the processed data to. """
 
+        self.timeout = 0.001
+        """ The timeout to use for the pubsub thread sleep_time parameter. """
+
         self.stopped = False
         """ Flag whether processing has been stopped. """
 
@@ -61,20 +64,19 @@ def configure_redis(ns, config=None):
     result.pubsub = result.redis.pubsub()
     result.channel_in = ns.redis_in
     result.channel_out = ns.redis_out
+    result.timeout = ns.redis_timeout
     if config is not None:
         result.config = config
     return result
 
 
-def run_harness(params, process_method, sleep_time=0.001):
+def run_harness(params, process_method):
     """
     Starts the processing using the supplied parameters and method for processing MessageContainer objects.
 
     :param params: the parameters to use
     :type params: ParameterContainer
     :param process_method: the method to use for processing the MessageContainer
-    :param sleep_time: the timeout in seconds
-    :type sleep_time: float
     """
 
     msg_cont = MessageContainer()
@@ -88,4 +90,4 @@ def run_harness(params, process_method, sleep_time=0.001):
             msg_cont.params.stopped = True
 
     params.pubsub.psubscribe(**{params.channel_in: anon_handler})
-    params.pubsub.run_in_thread(sleep_time=sleep_time)
+    params.pubsub.run_in_thread(sleep_time=params.timeout)
