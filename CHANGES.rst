@@ -6,6 +6,7 @@ Changelog
 
 - added the `redis_timeout` parameter to the argparse options to make the pubsub thread `sleep_time` parameter
   configurable from the command-line
+- the `create_parser` method can now specify the default values for: host, port, db, channel_in, channel_out, sleep_time
 
 
 0.0.3 (2023-07-10)
