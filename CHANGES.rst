@@ -1,7 +1,7 @@
 Changelog
 =========
 
-0.0.4 (????-??-??)
+0.0.4 (2023-07-25)
 ------------------
 
 - added the `redis_timeout` parameter to the argparse options to make the pubsub thread `sleep_time` parameter
