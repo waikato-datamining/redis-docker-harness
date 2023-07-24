@@ -3,7 +3,7 @@ import os
 
 
 def create_parser(description, prog=None, prefix="", host="localhost", port=6379, db=0,
-                  channel_in=None, channel_out=None, sleep_time=0.001):
+                  channel_in=None, channel_out=None, sleep_time=0.01):
     """
     Configures a command-line parser with parameters for redis.
 
