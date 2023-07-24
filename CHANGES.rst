@@ -1,6 +1,12 @@
 Changelog
 =========
 
+0.0.4 (????-??-??)
+------------------
+
+- the `sleep_time` (timeout) used by the `run_harness` method is now a parameter
+
+
 0.0.3 (2023-07-10)
 ------------------
 

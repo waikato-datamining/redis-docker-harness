@@ -66,13 +66,15 @@ def configure_redis(ns, config=None):
     return result
 
 
-def run_harness(params, process_method):
+def run_harness(params, process_method, sleep_time=0.001):
     """
     Starts the processing using the supplied parameters and method for processing MessageContainer objects.
 
     :param params: the parameters to use
     :type params: ParameterContainer
     :param process_method: the method to use for processing the MessageContainer
+    :param sleep_time: the timeout in seconds
+    :type sleep_time: float
     """
 
     msg_cont = MessageContainer()
@@ -86,4 +88,4 @@ def run_harness(params, process_method):
             msg_cont.params.stopped = True
 
     params.pubsub.psubscribe(**{params.channel_in: anon_handler})
-    params.pubsub.run_in_thread(sleep_time=0.001)
+    params.pubsub.run_in_thread(sleep_time=sleep_time)
