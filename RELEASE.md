@@ -25,7 +25,7 @@ Steps:
 
 * start new release (version: `vX.Y.Z`)
 * enter release notes, i.e., significant changes since last release
-* upload `redis-docker-harness-X.Y.Z.tar.gz` previously generated with `setyp.py`
+* upload `redis-docker-harness-X.Y.Z.tar.gz` previously generated with `setUp.py`
 * publish
 
 
